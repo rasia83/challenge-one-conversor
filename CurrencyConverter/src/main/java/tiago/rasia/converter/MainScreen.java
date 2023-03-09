@@ -86,12 +86,23 @@ public class MainScreen extends javax.swing.JFrame {
     private void setLanguage(){
         
         Map<String,String> languageMap;
-        
+        /*
         languageMap = switch (this.jComboBoxLanguage.getSelectedIndex()) {
             case 1 -> Languages.getLanguage("ptBR");
             case 2 -> Languages.getLanguage("esES");
             default -> Languages.getLanguage("enUS");
-        };
+        }; */
+        // alterei o switch para usar java 8
+        switch (this.jComboBoxLanguage.getSelectedIndex()) {
+            case 1:
+                languageMap = Languages.getLanguage("ptBR");
+                break;
+            case 2:
+                languageMap = Languages.getLanguage("esES");
+                break;
+            default:
+                languageMap = Languages.getLanguage("enUS");
+        }
         
         this.jLabelTop.setText(languageMap.get("jLabelTop"));
         this.jTabbedPaneConversions.setTitleAt(0, languageMap.get("jPanelCurrency"));
@@ -100,17 +111,50 @@ public class MainScreen extends javax.swing.JFrame {
         
         this.jLabelFrom.setText(languageMap.get("jLabelFrom"));
         this.jLabelTo.setText(languageMap.get("jLabelTo"));
-        /*
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
-        this.jComboBoxCurrencyFrom.setModel(model);
-        //this.jComboBoxCurrencyTo.setModel(model2);
-        model.insertElementAt("BRL 2", 0);
-        model.insertElementAt("USD 2", 1);
-        model.insertElementAt("EUR 2", 2);
         
-        // this.jComboBoxCurrencyFrom.getItemAt(0)
-        */
+        
+        // getting exiting combo box model
+        DefaultComboBoxModel model = (DefaultComboBoxModel) this.jComboBoxCurrencyFrom.getModel();
+        try {
+            // removing old data
+            model.removeAllElements();
+        } catch (Exception e){
+            // "Just keep swimming" - Dory
+        }
+        
+        model.insertElementAt(languageMap.get("BRL"), 0);
+        model.insertElementAt(languageMap.get("USD"), 1);
+        model.insertElementAt(languageMap.get("EUR"), 2);
+        model.insertElementAt(languageMap.get("GBP"), 3);
+        model.insertElementAt(languageMap.get("ARS"), 4);
+        model.insertElementAt(languageMap.get("CLP"), 5);
+        
+        // setting model with new data
+        this.jComboBoxCurrencyFrom.setModel(model);
+        this.jComboBoxCurrencyFrom.setSelectedIndex(0); 
+        
+        
+        // getting exiting combo box model
+        model = (DefaultComboBoxModel) this.jComboBoxCurrencyTo.getModel();
+        try {
+            // removing old data
+            model.removeAllElements();
+        } catch (Exception e){
+            // "Just keep swimming" - Dory
+        }
+        
+        model.insertElementAt(languageMap.get("BRL"), 0);
+        model.insertElementAt(languageMap.get("USD"), 1);
+        model.insertElementAt(languageMap.get("EUR"), 2);
+        model.insertElementAt(languageMap.get("GBP"), 3);
+        model.insertElementAt(languageMap.get("ARS"), 4);
+        model.insertElementAt(languageMap.get("CLP"), 5);
+        
+        // setting model with new data
+        this.jComboBoxCurrencyTo.setModel(model);
+        this.jComboBoxCurrencyTo.setSelectedIndex(1); 
+        
+        
     
         this.jLabelDecimalNumber.setText(languageMap.get("jLabelDecimalNumber"));
         this.jLabelRomanNumber.setText(languageMap.get("jLabelRomanNumber"));
@@ -165,7 +209,7 @@ public class MainScreen extends javax.swing.JFrame {
         jLabelTop.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelTop.setText("Converter");
 
-        jComboBoxLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enUS", "ptBR", "esES" }));
+        jComboBoxLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "Português", "Español" }));
         jComboBoxLanguage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxLanguageActionPerformed(evt);
@@ -412,7 +456,7 @@ public class MainScreen extends javax.swing.JFrame {
         jTabbedPaneConversions.addTab("Time", jPanelTime);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><a href=\"https://github.com/rasia83\"  target=\"_blank\">github.com/rasia83</a></html>");
+        jLabel1.setText("<html><a href=\"\"  target=\"_blank\">github.com/rasia83/challenge-one-conversor/</a></html>");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -494,10 +538,6 @@ public class MainScreen extends javax.swing.JFrame {
             this.jComboBoxCurrencyTo.setSelectedIndex(0);
         }
         
-        /* String textoMoeda = this.jComboBoxCurrencyFrom.getSelectedItem().toString();
-        //this.jLabelFrom.setText("<html>From:<BR>" + textoMoeda + "</html>");
-        this.jLabelFrom.setText("From: " + textoMoeda ); */
-        
         currencyConvert();
         this.jTextFieldAmount.requestFocus();
         this.jTextFieldAmount.selectAll();
@@ -512,11 +552,7 @@ public class MainScreen extends javax.swing.JFrame {
         } else {
             this.jComboBoxCurrencyFrom.setSelectedIndex(0);
         }
-        
-        /* String textoMoeda = this.jComboBoxCurrencyTo.getSelectedItem().toString();
-        //this.jLabelTo.setText("<html>To:<BR>" + textoMoeda + "</html>");
-        this.jLabelTo.setText("To: " + textoMoeda ); */
-        
+                
         currencyConvert();
         this.jTextFieldAmount.requestFocus();
         this.jTextFieldAmount.selectAll();
@@ -567,7 +603,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         try {
-            Desktop.getDesktop().browse(new URL("https://github.com/rasia83").toURI());
+            Desktop.getDesktop().browse(new URL("https://github.com/rasia83/challenge-one-conversor/").toURI());
         } catch (MalformedURLException ex) {
             Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (URISyntaxException | IOException ex) {
@@ -595,7 +631,10 @@ public class MainScreen extends javax.swing.JFrame {
         evt.setKeyChar(Character.toUpperCase(evt.getKeyChar()));
         char c = evt.getKeyChar();
                       
-        /*
+        /*  
+        ** Passei a validar o codigo com expressão regular para confirmar se era um numero romano valido
+        ** então não foram mais necessarias estas validações de entrada 
+        
         // se não for uma letra não aceitar a tecla digitada
         if(!Character.isLetter(c)) {
             evt.consume();

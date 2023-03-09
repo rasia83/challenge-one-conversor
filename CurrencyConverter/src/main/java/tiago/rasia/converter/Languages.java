@@ -50,8 +50,8 @@ public class Languages {
         LanguageMap.put("USD", "USD - US Dollar");
         LanguageMap.put("EUR", "EUR - Euro");
         LanguageMap.put("GBP", "GBP - Pound Sterling");
-        LanguageMap.put("ARS", "ars - Argentine Peso");
-        LanguageMap.put("CLP", "clp - Chilean Peso");
+        LanguageMap.put("ARS", "ARS - Argentine Peso");
+        LanguageMap.put("CLP", "CLP - Chilean Peso");
         
         LanguageMap.put("", "");
         
@@ -77,7 +77,7 @@ public class Languages {
         LanguageMap.put("jLabelRomanNumber", "Número Romano");
         
         LanguageMap.put("BRL", "BRL - Real Brasileiro");
-        LanguageMap.put("USD", "USD - Dolar Americano");
+        LanguageMap.put("USD", "USD - Dólar Americano");
         LanguageMap.put("EUR", "EUR - Euro");
         LanguageMap.put("GBP", "GBP - Libras Esterlinas");
         LanguageMap.put("ARS", "ARS - Peso Argentino");
@@ -101,7 +101,13 @@ public class Languages {
         
         LanguageMap.put("jLabelDecimalNumber", "Número Decimal");
         LanguageMap.put("jLabelRomanNumber", "Número Romano");
-            
+        
+        LanguageMap.put("BRL", "BRL - Real Brasileño");
+        LanguageMap.put("USD", "USD - Dólar Americano");
+        LanguageMap.put("EUR", "EUR - Euro");
+        LanguageMap.put("GBP", "GBP - Libras Esterlinas");
+        LanguageMap.put("ARS", "ARS - Peso Argentino");
+        LanguageMap.put("CLP", "CLP - Peso Chileno");
         
         return LanguageMap;
     }  

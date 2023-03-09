@@ -135,9 +135,9 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="enUS"/>
-                    <StringItem index="1" value="ptBR"/>
-                    <StringItem index="2" value="esES"/>
+                    <StringItem index="0" value="English"/>
+                    <StringItem index="1" value="Portugu&#xea;s"/>
+                    <StringItem index="2" value="Espa&#xf1;ol"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -521,7 +521,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;a href=&quot;https://github.com/rasia83&quot;  target=&quot;_blank&quot;&gt;github.com/rasia83&lt;/a&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;a href=&quot;&quot;  target=&quot;_blank&quot;&gt;github.com/rasia83/challenge-one-conversor/&lt;/a&gt;&lt;/html&gt;"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
