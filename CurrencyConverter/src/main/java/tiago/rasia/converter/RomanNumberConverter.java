@@ -14,7 +14,7 @@ public class RomanNumberConverter {
     
     
     public static void main(String[] args) {
-        
+        /*
         int number = 763;
         String romanNumeral = convertToRoman(number);
         System.out.println(number + " in Roman numerals is " + romanNumeral);
@@ -25,11 +25,15 @@ public class RomanNumberConverter {
         //romanNumeral = "MCCXXXIV";
         number = convertToInt(romanNumeral);
         System.out.println(romanNumeral + " in integer form is " + number);
-
+        */
     }
     
     
     public static String convertToRoman(int number) {
+        // limitar até 3999 para evitar caracteres especiais dos números romanos
+        if(number >= 4000)
+            return "";
+        
         // as letras representando 5k e 10k, V e X possuem um caractere especial, um traço sobre elas 
         String[] thousands = {"", "M", "MM", "MMM","MV","V","VM","VMM","IX","X"};
         String[] hundreds = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
